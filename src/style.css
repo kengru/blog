@@ -304,6 +304,7 @@ a:focus {
 }
 
 .icons {
+  display: flex;
   margin-left: auto;
   margin-top: var(--spacing-1);
 }

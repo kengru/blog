@@ -5,7 +5,7 @@ module.exports = {
       name: `Kendry Grullón`,
       summary: `who lives and works in San Francisco building useful things.`
     },
-    description: `A starter blog demonstrating what Gatsby can do.`,
+    description: `A blog about thoughts and development created by Kendry Grullon.`,
     siteUrl: `https://kengru.do/`,
     social: {
       github: `kengru`,
