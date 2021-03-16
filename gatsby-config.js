@@ -23,6 +23,12 @@ module.exports = {
         allExtensions: true // defaults to false
       }
     },
+    // {
+    //   resolve: `gatsby-plugin-netlify-cms`,
+    //   options: {
+    //     includeRobots: false
+    //   }
+    // },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
