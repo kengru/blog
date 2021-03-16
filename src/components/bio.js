@@ -6,6 +6,13 @@
  */
 
 import * as React from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faGithub,
+  faLinkedin,
+  faTwitter
+} from "@fortawesome/free-brands-svg-icons";
+
 import { useStaticQuery, graphql } from "gatsby";
 import { StaticImage } from "gatsby-plugin-image";
 
@@ -42,15 +49,36 @@ const Bio = () => {
         quality={95}
         alt="Profile picture"
       />
-      <div>
-        {author?.name && (
-          <p>
-            Written by <strong>{author.name}</strong>
-            {/* {author?.summary || null} */}
-          </p>
-        )}
-        <a href={`https://twitter.com/${social?.twitter || ``}`}>
-          You should follow them on Twitter
+      {author?.name && (
+        <p>
+          Written by <strong>{author.name}</strong>
+          {/* {author?.summary || null} */}
+        </p>
+      )}
+      <div className="icons">
+        <a
+          className="brandLink"
+          target="_blank"
+          rel="noopener noreferrer"
+          href={`https://github.com/${social?.github}`}
+        >
+          <FontAwesomeIcon icon={faGithub} size="2x" />
+        </a>
+        <a
+          className="brandLink"
+          target="_blank"
+          rel="noopener noreferrer"
+          href={`https://linkedin.com/in/${social?.linkedIn}`}
+        >
+          <FontAwesomeIcon icon={faLinkedin} size="2x" />
+        </a>
+        <a
+          className="brandLink"
+          target="_blank"
+          rel="noopener noreferrer"
+          href={`https://twitter.com/${social?.twitter}`}
+        >
+          <FontAwesomeIcon icon={faTwitter} size="2x" />
         </a>
       </div>
     </div>

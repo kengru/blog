@@ -288,6 +288,7 @@ a:focus {
 
 .bio {
   display: flex;
+  align-items: center;
   margin-bottom: var(--spacing-16);
 }
 
@@ -300,6 +301,21 @@ a:focus {
   margin-bottom: var(--spacing-0);
   min-width: 50px;
   border-radius: 100%;
+}
+
+.icons {
+  margin-left: auto;
+  margin-top: var(--spacing-1);
+}
+
+.brandLink {
+  text-decoration: none;
+  color: var(--color-heading);
+  margin: 10px;
+}
+
+.brandLink:hover {
+  color: var(--color-accent);
 }
 
 .blog-post header h1 {
