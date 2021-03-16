@@ -3,7 +3,7 @@ module.exports = {
     title: `kengru`,
     author: {
       name: `Kendry Grullón`,
-      summary: `who lives and works in San Francisco building useful things.`
+      summary: `blog on things I find interesting`
     },
     description: `A blog about thoughts and development created by Kendry Grullon.`,
     siteUrl: `https://kengru.do/`,
@@ -15,6 +15,14 @@ module.exports = {
   },
   plugins: [
     `gatsby-plugin-image`,
+    {
+      resolve: `gatsby-plugin-typescript`,
+      options: {
+        isTSX: true, // defaults to false
+        jsxPragma: `jsx`, // defaults to "React"
+        allExtensions: true // defaults to false
+      }
+    },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -114,8 +122,8 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `Gatsby Starter Blog`,
-        short_name: `GatsbyJS`,
+        name: `Kengru Blog`,
+        short_name: `kengru`,
         start_url: `/`,
         background_color: `#ffffff`,
         theme_color: `#663399`,

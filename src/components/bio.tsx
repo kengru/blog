@@ -17,7 +17,7 @@ import { useStaticQuery, graphql } from "gatsby";
 import { StaticImage } from "gatsby-plugin-image";
 
 const Bio = () => {
-  const data = useStaticQuery(graphql`
+  const data = useStaticQuery<BioData>(graphql`
     query BioQuery {
       site {
         siteMetadata {
@@ -36,15 +36,15 @@ const Bio = () => {
   `);
 
   // Set these values by editing "siteMetadata" in gatsby-config.js
-  const author = data.site.siteMetadata?.author;
-  const social = data.site.siteMetadata?.social;
+  const author = data.site.siteMetadata.author;
+  const social = data.site.siteMetadata.social;
 
   return (
     <div className="bio">
       <StaticImage
         className="bio-avatar"
         layout="fixed"
-        formats={["AUTO", "WEBP", "AVIF"]}
+        formats={["auto", "webp", "avif"]}
         src="../images/profile-pic.png"
         width={50}
         height={50}
@@ -62,7 +62,7 @@ const Bio = () => {
           className="brandLink"
           target="_blank"
           rel="noopener noreferrer"
-          href={`https://github.com/${social?.github}`}
+          href={`https://github.com/${social.github}`}
         >
           <FontAwesomeIcon icon={faGithub} size="2x" />
         </a>
@@ -70,7 +70,7 @@ const Bio = () => {
           className="brandLink"
           target="_blank"
           rel="noopener noreferrer"
-          href={`https://linkedin.com/in/${social?.linkedIn}`}
+          href={`https://linkedin.com/in/${social.linkedIn}`}
         >
           <FontAwesomeIcon icon={faLinkedin} size="2x" />
         </a>
@@ -78,7 +78,7 @@ const Bio = () => {
           className="brandLink"
           target="_blank"
           rel="noopener noreferrer"
-          href={`https://twitter.com/${social?.twitter}`}
+          href={`https://twitter.com/${social.twitter}`}
         >
           <FontAwesomeIcon icon={faTwitter} size="2x" />
         </a>
