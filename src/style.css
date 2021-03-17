@@ -312,6 +312,7 @@ a:focus {
 .brandLink {
   text-decoration: none;
   color: var(--color-heading);
+  height: 30px;
   margin: 10px;
 }
 
