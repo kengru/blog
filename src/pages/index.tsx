@@ -12,7 +12,7 @@ const BlogIndex: React.FC<PageProps<IndexData>> = ({ data, location }) => {
   if (posts.length === 0) {
     return (
       <Layout location={location} title={siteTitle}>
-        <SEO title="All posts" description="All posts"/>
+        <SEO title="All posts" description="All posts" />
         <Bio />
         <p>
           No blog posts found. Add markdown posts to "content/blog" (or the
@@ -25,7 +25,7 @@ const BlogIndex: React.FC<PageProps<IndexData>> = ({ data, location }) => {
 
   return (
     <Layout location={location} title={siteTitle}>
-      <SEO title="All posts" description="All posts"/>
+      <SEO title="All posts" description="All posts" />
       <Bio />
       <ol style={{ listStyle: `none` }}>
         {posts.map(post => {
@@ -44,7 +44,13 @@ const BlogIndex: React.FC<PageProps<IndexData>> = ({ data, location }) => {
                       <span itemProp="headline">{title}</span>
                     </Link>
                   </h2>
-                  <small>{post.frontmatter.date}</small>
+                  <small>
+                    {post.frontmatter.date}
+                    {post.frontmatter.tags &&
+                      post.frontmatter.tags
+                        .split(" ")
+                        .map(tag => <span className="tag">{tag}</span>)}
+                  </small>
                 </header>
                 <section>
                   <p
@@ -82,6 +88,7 @@ export const pageQuery = graphql`
           date(formatString: "MMMM DD, YYYY")
           title
           description
+          tags
         }
       }
     }

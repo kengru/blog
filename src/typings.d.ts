@@ -11,6 +11,7 @@ type Frontmatter = {
   title: string;
   description: string;
   date: string;
+  tags: string;
 };
 
 type Fields = {
