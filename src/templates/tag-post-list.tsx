@@ -1,11 +1,16 @@
 import React from "react";
 import { PageProps, Link, graphql } from "gatsby";
+import _ from "lodash";
 
 import Bio from "../components/bio";
 import Layout from "../components/layout";
 import SEO from "../components/seo";
 
-const BlogIndex: React.FC<PageProps<IndexData>> = ({ data, location }) => {
+const TagPostIndex: React.FC<PageProps<TagIndexData, TagIndexContext>> = ({
+  data,
+  location,
+  pageContext
+}) => {
   const siteTitle = data.site.siteMetadata.title || `Title`;
   const posts = data.allMarkdownRemark.nodes;
 
@@ -14,18 +19,17 @@ const BlogIndex: React.FC<PageProps<IndexData>> = ({ data, location }) => {
       <Layout location={location} title={siteTitle}>
         <SEO title="All posts" description="All posts" />
         <Bio />
-        <p>
-          No blog posts found. Add markdown posts to "content/blog" (or the
-          directory you specified for the "gatsby-source-filesystem" plugin in
-          gatsby-config.js).
-        </p>
+        <p>No blog posts found. It's possible this tag does not exist.</p>
       </Layout>
     );
   }
 
   return (
     <Layout location={location} title={siteTitle}>
-      <SEO title="All posts" description="All posts" />
+      <SEO
+        title={`${pageContext.tag.replaceAll("/", "")} posts`}
+        description={`${pageContext.tag.replaceAll("/", "")} posts`}
+      />
       <Bio />
       <ol style={{ listStyle: `none` }}>
         {posts.map(post => {
@@ -44,15 +48,7 @@ const BlogIndex: React.FC<PageProps<IndexData>> = ({ data, location }) => {
                       <span itemProp="headline">{title}</span>
                     </Link>
                   </h2>
-                  <small>
-                    {post.frontmatter.date}
-                    {post.frontmatter.tags &&
-                      post.frontmatter.tags.split(" ").map(tag => (
-                        <span key={tag} className="tag">
-                          {tag}
-                        </span>
-                      ))}
-                  </small>
+                  <small>{post.frontmatter.date}</small>
                 </header>
                 <section>
                   <p
@@ -71,16 +67,19 @@ const BlogIndex: React.FC<PageProps<IndexData>> = ({ data, location }) => {
   );
 };
 
-export default BlogIndex;
+export default TagPostIndex;
 
 export const pageQuery = graphql`
-  query {
+  query BlogPostsByTag($tag: String!) {
     site {
       siteMetadata {
         title
       }
     }
-    allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
+    allMarkdownRemark(
+      sort: { fields: [frontmatter___date], order: DESC }
+      filter: { frontmatter: { tags: { regex: $tag } } }
+    ) {
       nodes {
         excerpt
         fields {

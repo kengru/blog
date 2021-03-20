@@ -3,14 +3,19 @@ import { Link } from "gatsby";
 
 const FloatingTags = (props: FloatingTagsProps) => {
   const { tags } = props;
+
   return (
     <div className="floatingTags">
-      <h1>Tags</h1>
-      <ol style={{ listStyle: `none` }}>
+      <h2>Tags</h2>
+      <ul style={{ listStyle: `none` }}>
         {tags.map(tag => (
-          <Link to={tag}>{tag}</Link>
+          <li key={tag}>
+            <Link to={`/${tag}`} activeStyle={{ fontWeight: 600 }}>
+              {tag}
+            </Link>
+          </li>
         ))}
-      </ol>
+      </ul>
     </div>
   );
 };

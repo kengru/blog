@@ -329,10 +329,9 @@ a:focus {
 
 .floatingTags {
   position: absolute;
-  top: 50%;
-  left: 5%;
+  top: 30%;
+  left: 6%;
 }
-
 
 .blog-post header h1 {
   margin: var(--spacing-0) var(--spacing-0) var(--spacing-4) var(--spacing-0);
@@ -361,5 +360,11 @@ a:focus {
   ul,
   ol {
     list-style-position: inside;
+  }
+}
+
+@media (max-width: 60rem) {
+  .floatingTags {
+    display: none;
   }
 }

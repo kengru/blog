@@ -57,6 +57,27 @@ interface IndexData {
   };
 }
 
+interface TagIndexData {
+  site: {
+    siteMetadata: {
+      title: string;
+    };
+  };
+  allMarkdownRemark: {
+    nodes: MarkdownRemark[];
+  };
+}
+
+interface LayoutData {
+  allMarkdownRemark: {
+    nodes: MarkdownRemark[];
+  };
+}
+
+interface TagIndexContext {
+  tag: string;
+}
+
 interface SEOData {
   site: {
     siteMetadata: SiteMetadata;

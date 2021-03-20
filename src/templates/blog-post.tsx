@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React from "react";
 import { PageProps, Link, graphql } from "gatsby";
 
 import Bio from "../components/bio";
