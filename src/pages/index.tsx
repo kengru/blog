@@ -1,5 +1,6 @@
 import * as React from "react";
 import { PageProps, Link, graphql } from "gatsby";
+import _ from "lodash";
 
 import Bio from "../components/bio";
 import Layout from "../components/layout";
@@ -8,6 +9,9 @@ import SEO from "../components/seo";
 const BlogIndex: React.FC<PageProps<IndexData>> = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata.title || `Title`;
   const posts = data.allMarkdownRemark.nodes;
+  const uniqueTags = _.uniq(
+    _.flatten(posts.map(post => post.frontmatter.tags.split(" ")))
+  );
 
   if (posts.length === 0) {
     return (
@@ -47,9 +51,11 @@ const BlogIndex: React.FC<PageProps<IndexData>> = ({ data, location }) => {
                   <small>
                     {post.frontmatter.date}
                     {post.frontmatter.tags &&
-                      post.frontmatter.tags
-                        .split(" ")
-                        .map(tag => <span className="tag">{tag}</span>)}
+                      post.frontmatter.tags.split(" ").map(tag => (
+                        <span key={tag} className="tag">
+                          {tag}
+                        </span>
+                      ))}
                   </small>
                 </header>
                 <section>

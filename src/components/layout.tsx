@@ -1,5 +1,6 @@
 import * as React from "react";
-import { PageProps, Link } from "gatsby";
+import { Link } from "gatsby";
+import FloatingTags from "./floatingTags";
 
 const Layout: React.FC<LayoutProps> = ({ location, title, children }) => {
   const rootPath = `${__PATH_PREFIX__}/`;
@@ -23,6 +24,9 @@ const Layout: React.FC<LayoutProps> = ({ location, title, children }) => {
   return (
     <div className="global-wrapper" data-is-root-path={isRootPath}>
       <header className="global-header">{header}</header>
+      <nav>
+        <FloatingTags tags={["typescript", "data-science", "analysis"]} />
+      </nav>
       <main>{children}</main>
       <footer>
         © {new Date().getFullYear()}, Built with

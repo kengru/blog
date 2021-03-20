@@ -89,3 +89,7 @@ interface LayoutProps {
   title: string;
   location: Location;
 }
+
+interface FloatingTagsProps {
+  tags: string[];
+}
