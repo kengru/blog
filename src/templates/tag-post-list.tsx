@@ -27,8 +27,8 @@ const TagPostIndex: React.FC<PageProps<TagIndexData, TagIndexContext>> = ({
   return (
     <Layout location={location} title={siteTitle}>
       <SEO
-        title={`${pageContext.tag.replaceAll("/", "")} posts`}
-        description={`${pageContext.tag.replaceAll("/", "")} posts`}
+        title={`${pageContext.tag ? pageContext.tag : "tag"} posts`}
+        description={`${pageContext.tag ? pageContext.tag : "tag"} posts`}
       />
       <Bio />
       <ol style={{ listStyle: `none` }}>
