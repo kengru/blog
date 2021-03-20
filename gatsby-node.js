@@ -1,4 +1,5 @@
 const path = require(`path`);
+const lodash = require(`lodash`);
 const { createFilePath } = require(`gatsby-source-filesystem`);
 
 exports.createPages = async ({ graphql, actions, reporter }) => {
@@ -6,6 +7,8 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
 
   // Define a template for blog post
   const blogPost = path.resolve(`./src/templates/blog-post.tsx`);
+  // Defining a template for tag post list
+  const tagPostList = path.resolve(`./src/templates/tag-post-list.tsx`);
 
   // Get all markdown blog posts sorted by date
   const result = await graphql(
@@ -19,6 +22,9 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
             id
             fields {
               slug
+            }
+            frontmatter {
+              tags
             }
           }
         }
@@ -53,6 +59,18 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
           id: post.id,
           previousPostId,
           nextPostId
+        }
+      });
+    });
+    const uniqueTags = lodash.uniq(
+      lodash.flatten(posts.map(post => post.frontmatter.tags.split(" ")))
+    );
+    uniqueTags.forEach(tag => {
+      createPage({
+        path: tag,
+        component: tagPostList,
+        context: {
+          tag: `/${tag}/`
         }
       });
     });
@@ -109,6 +127,7 @@ exports.createSchemaCustomization = ({ actions }) => {
       title: String
       description: String
       date: Date @dateformat
+      tags: String
     }
 
     type Fields {

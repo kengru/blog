@@ -11,6 +11,7 @@ type Frontmatter = {
   title: string;
   description: string;
   date: string;
+  tags: string;
 };
 
 type Fields = {
@@ -56,6 +57,27 @@ interface IndexData {
   };
 }
 
+interface TagIndexData {
+  site: {
+    siteMetadata: {
+      title: string;
+    };
+  };
+  allMarkdownRemark: {
+    nodes: MarkdownRemark[];
+  };
+}
+
+interface LayoutData {
+  allMarkdownRemark: {
+    nodes: MarkdownRemark[];
+  };
+}
+
+interface TagIndexContext {
+  tag: string;
+}
+
 interface SEOData {
   site: {
     siteMetadata: SiteMetadata;
@@ -87,4 +109,8 @@ interface SEOProps {
 interface LayoutProps {
   title: string;
   location: Location;
+}
+
+interface FloatingTagsProps {
+  tags: string[];
 }

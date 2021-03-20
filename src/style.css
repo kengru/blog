@@ -54,7 +54,7 @@
   --fontSize-5: 2.074rem;
   --fontSize-6: 2.488rem;
   --fontSize-7: 2.986rem;
-  --color-primary: #005b99;
+  --color-primary: #024d80;
   --color-text: #2e353f;
   --color-text-light: #4f5969;
   --color-heading: #1a202c;
@@ -312,12 +312,25 @@ a:focus {
 .brandLink {
   text-decoration: none;
   color: var(--color-heading);
-  height: 30px;
+  height: 40px;
   margin: 10px;
+}
+
+.tag {
+  cursor: pointer;
+  background-color: cornsilk;
+  margin: 0px 5px 0px 5px;
+  padding: 4px;
 }
 
 .brandLink:hover {
   color: var(--color-accent);
+}
+
+.floatingTags {
+  position: absolute;
+  top: 30%;
+  left: 6%;
 }
 
 .blog-post header h1 {
@@ -347,5 +360,11 @@ a:focus {
   ul,
   ol {
     list-style-position: inside;
+  }
+}
+
+@media (max-width: 60rem) {
+  .floatingTags {
+    display: none;
   }
 }
