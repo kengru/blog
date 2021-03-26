@@ -114,3 +114,12 @@ interface LayoutProps {
 interface FloatingTagsProps {
   tags: string[];
 }
+
+interface Project {
+  name: string;
+  desc: string;
+  img: string;
+  code: string;
+  live: string;
+  skills: string[];
+}
