@@ -115,6 +115,11 @@ interface FloatingTagsProps {
   tags: string[];
 }
 
+interface OdinResponse<T> {
+  message: string;
+  data: T;
+}
+
 interface Project {
   name: string;
   desc: string;
