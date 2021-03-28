@@ -16,6 +16,9 @@ const FloatingTags = (props: FloatingTagsProps) => {
           </li>
         ))}
       </ul>
+      <Link to={"/portfolio"} style={{ fontSize: "22px", color: "black" }}>
+        Projects
+      </Link>
     </div>
   );
 };

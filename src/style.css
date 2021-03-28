@@ -330,7 +330,28 @@ a:focus {
 .floatingTags {
   position: absolute;
   top: 30%;
-  left: 6%;
+  left: 4%;
+}
+
+.project {
+  display: flex;
+  flex-direction: column;
+}
+
+.data {
+  display: flex;
+  align-items: center;
+  margin-bottom: 5px;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  margin-left: 10px;
+}
+
+.project img {
+  width: 200px;
 }
 
 .blog-post header h1 {
