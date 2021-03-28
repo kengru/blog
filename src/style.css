@@ -333,6 +333,27 @@ a:focus {
   left: 4%;
 }
 
+.project {
+  display: flex;
+  flex-direction: column;
+}
+
+.data {
+  display: flex;
+  align-items: center;
+  margin-bottom: 5px;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  margin-left: 10px;
+}
+
+.project img {
+  width: 200px;
+}
+
 .blog-post header h1 {
   margin: var(--spacing-0) var(--spacing-0) var(--spacing-4) var(--spacing-0);
 }

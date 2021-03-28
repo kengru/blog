@@ -4,6 +4,7 @@ import { PageProps, graphql } from "gatsby";
 import Bio from "../components/bio";
 import Layout from "../components/layout";
 import SEO from "../components/seo";
+import Project from "../components/project";
 
 import { odin } from "../utils/odin";
 
@@ -22,7 +23,7 @@ const Portfolio: React.FC<PageProps<IndexData>> = ({ data, location }) => {
 
   const displayedProjects =
     projects.length > 0
-      ? projects.map(project => <div key={project.name}>{project.name}</div>)
+      ? projects.map(project => <Project key={project.name} {...project} />)
       : null;
 
   return (
