@@ -30,7 +30,7 @@ const Portfolio: React.FC<PageProps<IndexData>> = ({ data, location }) => {
     <Layout location={location} title={siteTitle}>
       <SEO title="Portfolio" description="portfolio of projects" />
       <Bio />
-      {displayedProjects}
+      <div className="projects">{displayedProjects}</div>
     </Layout>
   );
 };

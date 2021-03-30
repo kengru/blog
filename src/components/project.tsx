@@ -1,4 +1,5 @@
 import * as React from "react";
+import Skeleton from "react-loading-skeleton";
 
 const Project = (props: Project) => {
   const { name, img, desc, code, live } = props;
@@ -6,7 +7,11 @@ const Project = (props: Project) => {
   return (
     <div className="project">
       <div className="data">
-        <img src={img} alt={name}></img>
+        {img ? (
+          <img src={img} alt={name}></img>
+        ) : (
+          <Skeleton height={200} width={200} />
+        )}
         <div className="info">
           <span style={{ marginBottom: 5 }}>{name}</span>
           {code ? (
@@ -21,7 +26,6 @@ const Project = (props: Project) => {
           ) : null}
         </div>
       </div>
-      <p>{desc}</p>
     </div>
   );
 };

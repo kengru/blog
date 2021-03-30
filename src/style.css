@@ -333,6 +333,14 @@ a:focus {
   left: 4%;
 }
 
+.projects {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
 .project {
   display: flex;
   flex-direction: column;
@@ -340,18 +348,21 @@ a:focus {
 
 .data {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  margin-bottom: 5px;
+  /* margin: 12px; */
 }
 
 .info {
   display: flex;
+  margin-top: 15px;
+  text-align: center;
   flex-direction: column;
-  margin-left: 10px;
 }
 
 .project img {
   width: 200px;
+  margin: 0px 4px 0px 4px;
 }
 
 .blog-post header h1 {
